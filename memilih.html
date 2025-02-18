@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Mode Puzzle</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .mode-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .mode-button {
+            width: 180px;
+            height: 100px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-transform: uppercase;
+        }
+
+        .easy {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .medium {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        .hard {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .mode-button:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        .mode-button i {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .mode-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🧩 Pilih Mode Puzzle 🧩</h1>
+    <div class="mode-container">
+        <button class="mode-button easy" onclick="window.location.href='esay.html'">
+            <i>😀</i> Easy
+        </button>
+        <button class="mode-button medium" onclick="window.location.href='medium.html'">
+            <i>😎</i> Medium
+        </button>
+        <button class="mode-button hard" onclick="window.location.href='hard.html'">
+            <i>🔥</i> Hard
+        </button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tebak Angka</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #game-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 350px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            font-weight: 400;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #2980b9;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease-in-out;
+            font-weight: 500;
+        }
+
+        .button:hover {
+            background: linear-gradient(135deg, #2980b9, #2471a3);
+            transform: scale(1.05);
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>🎯 Game Tebak Angka 🎯</h1>
+        <p>Tebak angka antara 1 - 100:</p>
+        <input type="number" id="guess-input" min="1" max="100">
+        <button class="button" onclick="checkGuess()">Tebak</button>
+        <p id="result"></p>
+        <button class="button" onclick="resetGame()">Main Lagi</button>
+        <button class="button" onclick="window.location.href='indexx.html'">🏠 Kembali ke Menu Utama</button>
+    </div>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        const maxAttempts = 10;
+
+        function checkGuess() {
+            let userGuess = Number(document.getElementById('guess-input').value);
+            let resultText = document.getElementById('result');
+            attempts++;
+
+            if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
+                resultText.innerText = "⚠ Masukkan angka yang valid antara 1 dan 100!";
+                resultText.style.color = "red";
+                return;
+            }
+
+            if (userGuess < randomNumber) {
+                resultText.innerText = `📉 Terlalu rendah! (${attempts}/${maxAttempts}) Coba lagi.`;
+                resultText.style.color = "#e67e22";
+            } else if (userGuess > randomNumber) {
+                resultText.innerText = `📈 Terlalu tinggi! (${attempts}/${maxAttempts}) Coba lagi.`;
+                resultText.style.color = "#e67e22";
+            } else {
+                resultText.innerText = `🎉 Selamat! Anda menebak dengan benar dalam ${attempts} kali tebakan!`;
+                resultText.style.color = "green";
+                return;
+            }
+
+            if (attempts >= maxAttempts) {
+                resultText.innerText = "❌ Anda telah mencapai batas 10 kali tebakan! Angka yang benar adalah " + randomNumber;
+                resultText.style.color = "red";
+                setTimeout(resetGame, 3000);
+            }
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('result').innerText = "";
+            document.getElementById('guess-input').value = "";
+        }
+    </script>
+</body>
+</html>

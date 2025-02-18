@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game P5 Kelompok 4</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #2980b9, #2471a3);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>🎮 Selamat Datang di Game Kelompok 4!</h1>
+    <p>Silahkan pilih game yang anda inginkan:</p>
+
+    <button class="button" onclick="window.location.href='memilih.html'">🧩 Main Game Puzzle</button>
+    <button class="button" onclick="window.location.href='tebak angka.html'">🎯 Main Tebak Angka</button>
+
+    <div class="footer">
+        <p><strong>Pembuat Game Kelompok 4:</strong></p>
+        <p>Attalah Egar Raksyaka (4/XI-6) <br>
+        Azzam Nazriel Yusuf (6/XI-6) <br>
+        Christabel Dona Bella Mamahit (08/XI-6) <br>
+        Deevan Tokananda (10/XI-6) <br>
+        Jalasena Mikhael Christiano (14/XI-6) <br>
+        Muhammad Agustian Bintang Mars (22/XI-6)</p>
+    </div>
+
+</body>
+</html>
